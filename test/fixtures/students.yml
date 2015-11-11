@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  desk: 1
+  behavior1: 1
+  behavior2: 1
+  behavior3: 1
+
+two:
+  name: MyString
+  desk: 1
+  behavior1: 1
+  behavior2: 1
+  behavior3: 1

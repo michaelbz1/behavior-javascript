@@ -1,0 +1,73 @@
+
+<p id="notice"><%= notice %></p>
+
+<% @students.each do |student| %>
+
+<div class="tablefloat">
+<table class="table table-condensed"  draggable="true">
+  <tbody>
+      <tr><th class="student_name" colspan="4"><%= student.desk %> <%= student.name %></th></tr>
+      <tr>
+        <td><input class="student" id="student<%= student.desk %>.1" type="number" value="<%= student.behavior1 %>"></td>
+        <td><input class="student" id="student<%= student.desk %>.2" type="number" value="<%= student.behavior2 %>"></td>
+        <td><input class="student" id="student<%= student.desk %>.3" type="number" value="<%= student.behavior3 %>"></td>
+      </tr>
+      <tr>
+        <td><%= link_to 'Show', student %></td>
+        <td><%= link_to 'Edit', edit_student_path(student) %></td>
+        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  </tbody>
+</table>
+</div>  <!--table float-->
+
+
+<% end %>
+
+<br>
+<div style="clear:both">
+<table>
+  <tr><td><%= link_to 'New Student', new_student_path %></td></tr>
+</table>
+
+</div>
+
+<script>
+  $(":input").bind('keyup mouseup', function () {
+    //alert("changed");
+    //alert ($(this).val());
+
+    var currentid = $(this).attr("id");
+    //alert (currentField);
+    
+    document.getElementById(currentid).style.background = "green";
+    
+	if (document.getElementById(currentid).value > 3) {
+        document.getElementById(currentid).value = 3;
+
+    }
+    
+    
+    if (!isNaN($(this).val()) && $(this).val() > -1) {       // If is not undefined or less than zero
+    
+        if ($(this).val() == '1') {
+        document.getElementById(currentid).style.background = "yellow";
+        }
+        if ($(this).val() == '2') {
+        document.getElementById(currentid).style.background = "orange";
+        }
+        if ($(this).val() == '3') {
+        document.getElementById(currentid).style.background = "red";
+        }
+
+	}
+	else
+    {    document.getElementById(currentid).value = 0;
+
+    }
+
+});
+
+
+
+</script>
