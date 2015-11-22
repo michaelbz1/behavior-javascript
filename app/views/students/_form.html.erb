@@ -21,15 +21,15 @@
   </div>
   <div class="field">
     <%= f.label :behavior1 %><br>
-    <%= f.number_field :behavior1 %>
+    <%= f.number_field :behavior1, :value => @data1 %>
   </div>
   <div class="field">
     <%= f.label :behavior2 %><br>
-    <%= f.number_field :behavior2 %>
+    <%= f.number_field :behavior2, :value => @data2  %>
   </div>
   <div class="field">
     <%= f.label :behavior3 %><br>
-    <%= f.number_field :behavior3 %>
+    <%= f.number_field :behavior3, :value => @data3  %>
   </div>
   <div class="actions">
     <%= f.submit %>

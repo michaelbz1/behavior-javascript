@@ -19,7 +19,12 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
+    @data1 = params[:student_1]
+    @data2 = params[:student_2]
+    @data3 = params[:student_3]
   end
+
+
 
   # POST /students
   # POST /students.json
@@ -49,6 +54,11 @@ class StudentsController < ApplicationController
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  # GET /students/1/edit
+  def edit_all
+
   end
 
   # DELETE /students/1

@@ -3,18 +3,21 @@
 
 <% @students.each do |student| %>
 
+<%= form_tag edit_student_path(student), {:action => "post"} do %>
+
 <div class="tablefloat">
 <table class="table table-condensed"  draggable="true">
   <tbody>
       <tr><th class="student_name" colspan="4"><%= student.desk %> <%= student.name %></th></tr>
       <tr>
-        <td><input class="student" id="student<%= student.desk %>.1" type="number" value="<%= student.behavior1 %>"></td>
-        <td><input class="student" id="student<%= student.desk %>.2" type="number" value="<%= student.behavior2 %>"></td>
-        <td><input class="student" id="student<%= student.desk %>.3" type="number" value="<%= student.behavior3 %>"></td>
+        <td><input class="student" id="student<%= student.desk %>.1" type="number" value="<%= student.behavior1 %>" name="student_1"></td>
+        <td><input class="student" id="student<%= student.desk %>.2" type="number" value="<%= student.behavior2 %>" name="student_2"></td>
+        <td><input class="student" id="student<%= student.desk %>.3" type="number" value="<%= student.behavior3 %>" name="student_3"></td>
       </tr>
       <tr>
         <td><%= link_to 'Show', student %></td>
-        <td><%= link_to 'Edit', edit_student_path(student) %></td>
+        <td><%= submit_tag "Save" %></td>
+  
         <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
   </tbody>
@@ -22,13 +25,21 @@
 </div>  <!--table float-->
 
 
-<% end %>
+<% end %> <!--end edit form-->
+
+<% end %> <!--end student each--> 
 
 <br>
 <div style="clear:both">
+<%= form_tag :url => url_for(:action => 'edit_all') do %>
+
+  <tr><td><%= submit_tag "Save All" %></td></tr>
+<% end %> <!--end edit all form-->
+
 <table>
   <tr><td><%= link_to 'New Student', new_student_path %></td></tr>
 </table>
+
 
 </div>
 
